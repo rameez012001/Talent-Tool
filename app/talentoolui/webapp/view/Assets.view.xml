@@ -1,0 +1,76 @@
+<mvc:View
+    class="sapUiSizeCompact"
+    controllerName="talentoolui.controller.Assets"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Table
+        id="Assets"
+        growing="true"
+        growingThreshold="10"
+        items="{/Assets}">
+
+        <!-- Header -->
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Assets" level="H2"/>
+                <ToolbarSpacer/>
+                <Button
+                    icon="sap-icon://add"
+                    id="create"
+                    text="Create"
+                    tooltip="Add Asset"
+                    press=".onCreateAssets"/>
+            </Toolbar>
+        </headerToolbar>
+
+        <!-- Columns -->
+        <columns>
+            <Column>
+                <Text text="Asset Name"/>
+            </Column>
+
+            <Column hAlign="Center">
+                <Text text="Device ID"/>
+            </Column>
+
+            <Column hAlign="Center">
+                <Text text="Status"/>
+            </Column>
+
+            <Column>
+                <Text text="Assigned To"/>
+            </Column>
+
+            <Column hAlign="Center">
+                <Text text="Handed Over On"/>
+            </Column>
+
+            <Column hAlign="Center">
+                <Text text="Returned On"/>
+            </Column>
+        </columns>
+
+        <!-- Row Template -->
+        <items>
+            <ColumnListItem
+                type="Navigation"
+                press=".onAssetItemPressed">
+
+                <cells>
+                    <Text text="{assetTag}"/>
+                    <Text text="{deviceId}"/>
+                    <ObjectStatus
+                        text="{status}"
+                        state="{= ${status} === 'AVAILABLE' ? 'Success' : 'Warning' }"/>
+                    <Text text="{user}"/>
+                    <Text text="{assignedOn}"/>
+                    <Text text="{returnOn}"/>
+                </cells>
+
+            </ColumnListItem>
+        </items>
+
+    </Table>
+
+</mvc:View>

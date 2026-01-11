@@ -1,0 +1,55 @@
+<mvc:View
+    class="sapUiSizeCompact"
+    controllerName="talentoolui.controller.Users"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+
+    <Table
+        id="Users"
+        growing="true"
+        growingThreshold="10"
+        items="{/Users}">
+
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Users" level="H2"/>
+                <ToolbarSpacer/>
+                <Button
+                    icon="sap-icon://add"
+                    text="Create"
+                    tooltip="Add User"
+                    press=".onCreateBtnPressed"/>
+            </Toolbar>
+        </headerToolbar>
+
+        <columns>
+            <Column>
+                <Text text="Name"/>
+            </Column>
+
+            <!-- <Column>
+                <Text text="Employee ID"/>
+            </Column> -->
+
+            <Column>
+                <Text text="Email"/>
+            </Column>
+
+            <Column>
+                <Text text="Department"/>
+            </Column>
+        </columns>
+
+        <items>
+            <ColumnListItem type="Navigation" press=".onUserItemPressed">
+                <cells>
+                    <Text text="{name}"/>
+                    <!-- <Text text="{userId}"/> -->
+                    <Text text="{email}"/>
+                    <Text text="{department}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+
+    </Table>
+</mvc:View>

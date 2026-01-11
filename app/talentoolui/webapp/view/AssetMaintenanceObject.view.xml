@@ -1,0 +1,70 @@
+<mvc:View
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.uxap"
+		xmlns:layout="sap.ui.layout"
+		xmlns:m="sap.m"
+		controllerName="talentoolui.controller.AssetMaintenanceObject"
+		height="100%">
+
+	<ObjectPageLayout id="MainteanceObjectLayout" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageHeader id="MainteananceObject"
+							  objectTitle="{title}"
+							  objectSubtitle="Maintenance Request">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://action" text="action" tooltip="action"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://action-settings" text="settings" tooltip="action-settings"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" tooltip="edit"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
+					<ObjectPageHeaderActionButton icon="{buttons>/icon}"
+												  text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:ObjectStatus title="Title" text="{title}"/>
+				<m:ObjectStatus title="Description" text="{description}"/>
+				<m:ObjectStatus title="Asset" text="{assetName}"/>
+				<m:ObjectStatus title="Technician" text="{technicianName}"/>
+			</layout:VerticalLayout>
+			<m:ObjectStatus title="Priority" text="{priority}" state="Error"/>
+			<m:ObjectStatus title="Status" text="{status}" state="Warning"/>
+
+		</headerContent>
+		<!-- <sections>
+			<ObjectPageSection titleUppercase="false" title="2014 Goals Plan">
+				<subSections>
+					<ObjectPageSubSection title=" " titleUppercase="false">
+						<blocks>
+							<goals:GoalsBlock id="goalsblock"/>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection titleUppercase="false" title="Personal">
+				<subSections>
+					<ObjectPageSubSection title="Connect" titleUppercase="false">
+						<blocks>
+							<personal:BlockPhoneNumber id="phone"/>
+							<personal:BlockSocial id="social"/>
+							<personal:BlockAdresses id="adresses"/>
+							<personal:BlockMailing id="mailing" columnLayout="1"/>
+						</blocks>
+					</ObjectPageSubSection>
+
+					<ObjectPageSubSection id="paymentSubSection" title="Payment information" titleUppercase="false">
+						<blocks>
+							<personal:PersonalBlockPart1 id="part1" columnLayout="1"/>
+						</blocks>
+						<moreBlocks>
+							<personal:PersonalBlockPart2 id="part2" columnLayout="1"/>
+						</moreBlocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections> -->
+	</ObjectPageLayout>
+</mvc:View>

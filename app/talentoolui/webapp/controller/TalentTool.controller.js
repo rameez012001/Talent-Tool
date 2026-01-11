@@ -5,6 +5,8 @@ sap.ui.define([
 
     return Controller.extend("talentoolui.controller.TalentTool", {
         onInit() {
+            const oModel = this.getOwnerComponent().getModel();
+            this.getView().setModel(oModel);
         }
     });
 });

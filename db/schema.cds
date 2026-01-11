@@ -1,8 +1,8 @@
 namespace talenttool.assets;
 
 using {
-    cuid,
-    managed
+  cuid,
+  managed
 } from '@sap/cds/common';
 
 entity Assets : cuid, managed {
@@ -21,6 +21,7 @@ entity Assets : cuid, managed {
 
 entity User : cuid, managed {
   name       : String(100);
+  userId     : String;
   email      : String(255);
   department : String enum {
     IT;

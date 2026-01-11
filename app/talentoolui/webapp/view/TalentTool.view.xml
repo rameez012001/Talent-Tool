@@ -1,6 +1,21 @@
 <mvc:View controllerName="talentoolui.controller.TalentTool"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    >
     <Page id="page" title="{i18n>title}">
+    <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+			<items>
+				<IconTabFilter text="Assets">
+					<mvc:XMLView viewName="talentoolui.view.Assets"/>
+				</IconTabFilter>
+				<IconTabFilter text="Asset Maintenance">
+					<mvc:XMLView viewName="talentoolui.view.AssetMaintenance" />
+				</IconTabFilter>
+				<IconTabFilter text="Users">
+					<mvc:XMLView viewName="talentoolui.view.Users" />
+				</IconTabFilter>
+			</items>
+		</IconTabBar>
     </Page>
 </mvc:View>

@@ -1,0 +1,54 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.uxap"
+	xmlns:layout="sap.ui.layout"
+	xmlns:m="sap.m"
+	controllerName="talentoolui.controller.UserObject"
+	height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageHeader id="headerForTest"
+							  objectTitle="{name}"
+							  objectImageShape="Circle"
+							  objectSubtitle="Software Engineer"
+							  isObjectTitleAlwaysVisible="false"
+							  isObjectSubtitleAlwaysVisible="false"
+							  isActionAreaAlwaysVisible="true"
+							  showPlaceholder="true">
+				<navigationBar>
+					<m:Bar>
+						<m:contentLeft>
+							<m:Button icon="sap-icon://nav-back" tooltip="nav-back"/>
+						</m:contentLeft>
+						<m:contentMiddle>
+							<m:Text text="Employee Profile"/>
+						</m:contentMiddle>
+					</m:Bar>
+				</navigationBar>
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://tree" text="tree" tooltip="tree"/>
+					<ObjectPageHeaderActionButton icon="sap-icon://action" text="action" tooltip="action"/>
+				</actions>
+			</ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:ObjectStatus title="Department" text="{department}"/>
+				<m:ObjectStatus title="Office phone" text="+91-90100-98100"/>
+				<m:ObjectStatus title="Email" text="{email}"/>
+			</layout:VerticalLayout>
+			<layout:HorizontalLayout>
+				<m:Image width="21px" height="21px"
+						 src="./test-resources/sap/uxap/images/linkedInIcon.png"/>
+				<m:Image width="20px" height="20px"
+						 src="./test-resources/sap/uxap/images/facebookIcon.png"/>
+				<m:Image width="21px" height="21px"
+						 src="./test-resources/sap/uxap/images/twitterIcon.png"/>
+			</layout:HorizontalLayout>
+			<m:ObjectStatus state="Success" icon="sap-icon://employee-approvals" text="Available"/>
+			<layout:VerticalLayout>
+				<m:Label text="Bangalore, India"/>
+				<m:Label text="3:00 PM, Friday"/>
+			</layout:VerticalLayout>
+		</headerContent>
+	</ObjectPageLayout>
+</mvc:View>
