@@ -1,1 +1,72 @@
-<core:FragmentDefinition/>
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="requestDialog"
+        title="Create Request"
+        draggable="true"
+        resizable="true">
+
+        <VBox class="sapUiSmallMargin">
+
+            <Label text="Title"/>
+            <Input
+                id="reqTitle"/>
+
+            <Label text="Description"/>
+            <Input
+                id="reqDesc"/>
+            
+            <Label text="Priority"/>
+            <Select id="reqPriority" selectedKey="LOW">
+                <items>
+                    <core:Item text="HIGH" key="HIGH"/>
+                    <core:Item text="MID" key="MID"/>
+                    <core:Item text="LOW" key="LOW"/>
+                </items>
+            </Select>
+
+            <VBox class="sapUiSmallMargin">
+    <Label text="Technician ID"/>
+
+    <Select
+        id="assignTechnicianSelect"
+        selectedKey=""
+        forceSelection="false"
+        items="{
+            path: '/Users',
+            filters: [
+                { path: 'department', operator: 'EQ', value1: 'IT' }
+            ]
+        }">
+
+        <!-- Placeholder = NULL -->
+        <core:Item key="" text="-- Select Technician --"/>
+
+        <!-- Actual technicians -->
+        <core:Item
+            key="{ID}"
+            text="{name}" />
+    </Select>
+</VBox>
+
+            
+        </VBox>
+
+        <beginButton>
+            <Button
+                text="Raise Request"
+                type="Emphasized"
+                press="onRaiseRequest"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancel"
+                press="onCloseDialog"/>
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

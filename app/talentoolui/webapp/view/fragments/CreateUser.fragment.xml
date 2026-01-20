@@ -25,6 +25,7 @@
                 id="userEmail"
                 placeholder="Enter Email"/>
             
+            <Label text="Department"/>
             <Select id="userDept" selectedKey="SDE">
                 <items>
                     <core:Item text="IT" key="IT"/>

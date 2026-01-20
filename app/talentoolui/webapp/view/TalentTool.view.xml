@@ -3,7 +3,17 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     >
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" showHeader="false">
+	<!-- <subHeader>
+            <Toolbar>
+                <SearchField
+                    width="100%"
+                    placeholder="Search Assets, Maintenance, Users"
+                    liveChange=".onGlobalSearch"
+                />
+            </Toolbar>
+        </subHeader> -->
+		<mvc:XMLView viewName="talentoolui.view.Header" ></mvc:XMLView>
     <IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 			<items>
 				<IconTabFilter text="Assets">

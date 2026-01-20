@@ -13,12 +13,6 @@
         <headerToolbar>
             <Toolbar>
                 <Title text="Maintenance Requests" level="H2"/>
-                <ToolbarSpacer/>
-                <Button
-                    icon="sap-icon://add"
-                    text="Create"
-                    tooltip="Create Maintenance Request"
-                    press=".onCreateRequest"/>
             </Toolbar>
         </headerToolbar>
 
@@ -55,10 +49,10 @@
                     <Text text="{description}"/>
                     <ObjectStatus
                         text="{status}"
-                        state="{= ${status} === 'OPEN' ? 'Warning' : 'Success' }"/>
+                        state="{ path:'status', formatter:'.reqStatusState' }"/>
                     <ObjectStatus
                         text="{priority}"
-                        state="{= ${status} === 'HIGH' ? 'Warning' : 'Success' }"/>                        
+                        state="{ path:'priority', formatter:'.reqPriorityState' }"/>                        
                     <Text text="{assetName}"/>
                     <Text text="{= ${technicianName} ? ${technicianName} : 'Not yet Assigned' }"/>
                 </cells>

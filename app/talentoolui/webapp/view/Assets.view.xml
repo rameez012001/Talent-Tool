@@ -8,7 +8,8 @@
         id="Assets"
         growing="true"
         growingThreshold="10"
-        items="{/Assets}">
+        items="{/Assets}"
+        mode="MultiSelect">
 
         <!-- Header -->
         <headerToolbar>
@@ -62,10 +63,10 @@
                     <Text text="{deviceId}"/>
                     <ObjectStatus
                         text="{status}"
-                        state="{= ${status} === 'AVAILABLE' ? 'Success' : 'Warning' }"/>
+                        state="{ path:'status', formatter:'.assetStatus' }"/>
                     <Text text="{user}"/>
                     <Text text="{assignedOn}"/>
-                    <Text text="{returnOn}"/>
+                    <Text text="{returnedOn}"/>
                 </cells>
 
             </ColumnListItem>

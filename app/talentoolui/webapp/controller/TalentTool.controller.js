@@ -7,6 +7,6 @@ sap.ui.define([
         onInit() {
             const oModel = this.getOwnerComponent().getModel();
             this.getView().setModel(oModel);
-        }
+        },
     });
 });

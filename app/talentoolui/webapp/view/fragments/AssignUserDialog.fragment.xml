@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Dialog
+        id="assignTechnicianDialog"
+        title="{assignUser>/title}"
+        draggable="true"
+        resizable="true">
+
+        <VBox class="sapUiSmallMargin">
+            <Label text="User ID"/>
+            <Select
+                id="assignUserSelect"
+                items="{/Users}">
+                <core:Item
+                    key="{ID}"
+                    text="{name}" />
+            </Select>
+            
+        </VBox>
+
+        <beginButton>
+            <Button
+                text="Assign"
+                type="Emphasized"
+                press="handleAssignConfirm"/>
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancel"
+                press="onCloseDialog"/>
+        </endButton>
+
+    </Dialog>
+
+</core:FragmentDefinition>

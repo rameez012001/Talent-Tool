@@ -8,7 +8,8 @@
         id="Users"
         growing="true"
         growingThreshold="10"
-        items="{/Users}">
+        items="{/Users}"
+        inset="true">
 
         <headerToolbar>
             <Toolbar>
@@ -27,9 +28,9 @@
                 <Text text="Name"/>
             </Column>
 
-            <!-- <Column>
+            <Column>
                 <Text text="Employee ID"/>
-            </Column> -->
+            </Column>
 
             <Column>
                 <Text text="Email"/>
@@ -44,7 +45,7 @@
             <ColumnListItem type="Navigation" press=".onUserItemPressed">
                 <cells>
                     <Text text="{name}"/>
-                    <!-- <Text text="{userId}"/> -->
+                    <Text text="{userId}"/>
                     <Text text="{email}"/>
                     <Text text="{department}"/>
                 </cells>

@@ -1,8 +1,45 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
+sap.ui.define(["sap/ui/core/mvc/Controller",], (Controller) => {
     "use strict"
     return Controller.extend("talentoolui.controller.Users", {
         onInit() {
             this.getView().setModel(this.getOwnerComponent().getModel(), "Users");
+            this._oEventBus = sap.ui.getCore().getEventBus();
+            this._oEventBus.subscribe(
+                "globalSearch",
+                "filter",
+                this.onSearch,
+                this
+            );
+        },
+        onSearch: function (sChannel, sEvent, oData) {
+            const sQuery = oData.query;
+            const oTable = this.byId("Users");// table id of the xml
+            if (!oTable) {
+                return;
+            }
+            const oBinding = oTable.getBinding("items");
+            if (!oBinding) {
+                return;
+            }
+
+            if (sQuery) {
+                const aFilters = [
+                    new sap.ui.model.Filter({
+                        path: `name`,
+                        operator: sap.ui.model.FilterOperator.Contains,
+                        value1: sQuery,
+                        caseSensitive: false
+                    })
+                ];
+                const oOrFilter = new sap.ui.model.Filter({
+                    filters: aFilters,
+                    and: false // OR condition
+                });
+                oBinding.filter(oOrFilter)
+            }
+            else {
+                oBinding.filter([]);
+            }
         },
         onUserItemPressed: function (oEvent) {
             const oItem = oEvent.getSource();

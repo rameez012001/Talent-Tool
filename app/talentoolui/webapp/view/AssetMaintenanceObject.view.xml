@@ -12,12 +12,11 @@
 							  objectTitle="{title}"
 							  objectSubtitle="Maintenance Request">
 				<actions>
-					<ObjectPageHeaderActionButton icon="sap-icon://action" text="action" tooltip="action"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://action-settings" text="settings" tooltip="action-settings"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" tooltip="edit"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
-					<ObjectPageHeaderActionButton icon="{buttons>/icon}"
+					<m:Button icon="sap-icon://add-employee" id="assignBtn" text="Assign Technician" press="openUserDialog" tooltip="Assign Technician"/>
+					<m:Button icon="sap-icon://complete" id="fixedBtn" text="Fixed" tooltip="mark as fixed" press="onFixed"/>		
+					<m:Button icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
+					<m:Button icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
+					<m:Button icon="{buttons>/icon}"
 												  text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
 				</actions>
 			</ObjectPageHeader>
@@ -29,8 +28,8 @@
 				<m:ObjectStatus title="Asset" text="{assetName}"/>
 				<m:ObjectStatus title="Technician" text="{technicianName}"/>
 			</layout:VerticalLayout>
-			<m:ObjectStatus title="Priority" text="{priority}" state="Error"/>
-			<m:ObjectStatus title="Status" text="{status}" state="Warning"/>
+			<m:ObjectStatus title="Priority" text="{priority}" state="{ path:'priority', formatter:'.reqPriorityState' }"/>
+			<m:ObjectStatus title="Status" text="{status}" state="{ path:'status', formatter:'.reqStatusState' }"/>
 
 		</headerContent>
 		<!-- <sections>

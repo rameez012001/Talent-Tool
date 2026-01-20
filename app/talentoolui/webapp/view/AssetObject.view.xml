@@ -15,29 +15,36 @@
 							  isObjectSubtitleAlwaysVisible="false"
 							  objectImageURI="./test-resources/sap/uxap/images/imageID_275314.png">
 				<actions>
-					<ObjectPageHeaderActionButton icon="sap-icon://action" text="action" tooltip="action"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://action-settings" text="settings" tooltip="action-settings"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://edit" text="edit" tooltip="edit" enabled="false"/>
-					<ObjectPageHeaderActionButton icon="sap-icon://save" text="save" visible="false" tooltip="save"/>
+					
+					<m:Button
+						text="Assign To Employee"
+						type="Emphasized"
+						press="openUserDialog"
+						id="assignEmployee"
+						/> 
+					<m:Button
+						text="Raise Ticket"
+						type="Emphasized"
+						press="openReqDialog"
+						id="rasieRequest"
+						/> 
 					<ObjectPageHeaderActionButton icon="sap-icon://refresh" text="{buttons>/text}" tooltip="refresh"/>
-					<ObjectPageHeaderActionButton icon="{buttons>/icon}"
-												  text="{path:'/text', model:'buttons', formatter:'.onFormat'}" tooltip="chain-link"/>
 				</actions>
 			</ObjectPageHeader>
 		</headerTitle>
 		<headerContent>
 			<layout:VerticalLayout>
 				<m:ObjectStatus title="Device ID" text="{deviceId}"/>
-				<m:ObjectStatus title="Owner" text="owner"/>
-                <m:ObjectStatus title="Status" text="{status}" state="Warning"/>
+				<m:ObjectStatus title="Owner" text="{user}"/>
+                <m:ObjectStatus title="Status" text="{status}" state="{ path:'status', formatter:'.assetStatus' }"/>
 				
 			</layout:VerticalLayout>
 			<m:Text width="200px"
 					text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."/>
 			
             <layout:VerticalLayout>
-				<m:ObjectStatus title="Assigned On" text="{createdAt}"/>
-                <m:ObjectStatus title="Returned On" text="{createdAt}"/>
+				<m:ObjectStatus title="Assigned On" text="{assignedOn}"/>
+                <m:ObjectStatus title="Returned On" text="{returnedOn}"/>
 			</layout:VerticalLayout>
 
 		</headerContent>
