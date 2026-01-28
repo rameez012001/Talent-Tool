@@ -21,7 +21,7 @@
                     id="create"
                     text="Create"
                     tooltip="Add Asset"
-                    press=".onCreateAssets"/>
+                    press="onCreateBtnPressed"/>
             </Toolbar>
         </headerToolbar>
 
@@ -64,7 +64,7 @@
                     <ObjectStatus
                         text="{status}"
                         state="{ path:'status', formatter:'.assetStatus' }"/>
-                    <Text text="{user}"/>
+                    <Link text="{user}" press="openQuickUserView"/>
                     <Text text="{assignedOn}"/>
                     <Text text="{returnedOn}"/>
                 </cells>

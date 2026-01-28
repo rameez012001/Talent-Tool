@@ -20,7 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], (Controller) => {
             }
 
             const oBinding = oTable.getBinding("items");
-            if (!oBinding) {
+            if (!oBinding) { 
                 return;
             }
 

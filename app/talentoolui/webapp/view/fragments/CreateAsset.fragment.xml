@@ -10,22 +10,18 @@
 
         <VBox class="sapUiSmallMargin">
 
-            <Label text="User ID"/>
+            <Label text="Asset Name"/>
             <Input
-                id="assetName"
+                id="assetTag"
                 placeholder="Enter ID"/>
 
             <Label text="Name"/>
             <Input
-                id="assetId"
-                placeholder="Enter Name"/>
-
-            <Label text="Email"/>
-            <Input
-                id=""
-                placeholder="Enter Email"/>
+                id="deviceId"
+                placeholder="Asset ID"/>
             
-            <Select id="assetStatus" selectedKey="AVAILABLE">
+            <Label text="Status"/>
+            <Select id="status" selectedKey="AVAILABLE">
                 <items>
                     <core:Item text="AVAILABLE" key="AVAILABLE"/>
                     <core:Item text="IN_USE" key="IN_USE"/>
@@ -40,7 +36,7 @@
             <Button
                 text="Create"
                 type="Emphasized"
-                press="onCreateUser"/>
+                press="onCreateAsset"/>
         </beginButton>
 
         <endButton>
