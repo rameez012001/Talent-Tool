@@ -146,6 +146,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', "sap/ui/model/json/JSONModel"], (Co
             oListBinding.create(oPayload);
             oAssetContext.setProperty('status', 'MAINTENANCE')
             if(sOwner){
+                alert("im working fine")
                 oAssetContext.setProperty(
                     "returnedOn",
                     new sap.ui.model.odata.type.Date().parseValue(
@@ -153,6 +154,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', "sap/ui/model/json/JSONModel"], (Co
                     "object"
                     )
                 );
+                console.log(oAssetContext.getProperty("returnedOn"))
             }
 
             oModel.submitBatch("$auto")

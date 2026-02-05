@@ -26,7 +26,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel'], (Co
             let oContext = this.getView().getBindingContext();
             let sStatus = oContext.getProperty("status");
             let sTechnician = oContext.getProperty("technician/ID");
-            if (sStatus == "INPROGRESS" || sStatus == "FIXED") {
+            if (sStatus == "FIXED") {
                 this.byId('fixedBtn').setEnabled(false)
             }
             if (sTechnician) {
@@ -109,8 +109,16 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel'], (Co
                     const oAssetContext = oAssetBinding.getBoundContext();
 
                     oMRContext.setProperty("status", "FIXED");
-                    
+
                     oAssetContext.setProperty("status", sAssetStatus);
+                    oAssetContext.setProperty("returnedOn", null);
+                    oAssetContext.setProperty(
+                        "assignedOn",
+                        new sap.ui.model.odata.type.Date().parseValue(
+                            new Date(),
+                            "object"
+                        )
+                    );
 
                     return oModel.submitBatch("auto");
                 })
